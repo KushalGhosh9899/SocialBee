@@ -1,0 +1,53 @@
+.cover-pic{
+    background-image: url('./images/honeycomb.png');
+    height:22em;
+    width:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.profile-pic{
+    background-image: url('./images/profile.png');
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-size: 104%;
+    border: 3px solid #86c232;
+    margin-top: -90px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.cover-container{
+    height:30em;
+    width:100%;
+}
+h4{
+    color: #86c232;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.profile-info{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding: 1% 23%;
+    margin: 0 auto;
+    border-bottom:3px solid #86c232;
+}
+.gallery{
+    margin: 2% 13.9%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.post{
+    background-image: url('./images/honeycomb.jpg');
+    width:300px;
+    height: 300px;
+    background-size: 100%;
+    margin-bottom: 2%;
+}

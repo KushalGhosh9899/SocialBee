@@ -1,0 +1,69 @@
+body, .nav-wrapper,.input-field{
+    background-color: #222629 !important;
+}
+.nav-wrapper{
+    box-shadow: 0;
+}
+.brand-logo, .brand-logo:hover{
+    font-size:38px!important;
+    margin-left: 10px;
+    color: #86c232!important;  
+    background-color: #222629!important;  
+}
+.head-link,a{
+    color: #86c232!important;
+    font-size: 18px!important;
+}
+.head-link:hover{
+    color:red!important;
+    background-color: aliceblue!important;
+}
+.authcard{
+    padding:50px;
+    text-align: center;
+    max-width: 500px;
+    margin: 6% auto;
+}
+.btn{
+    margin: 40px;
+    background-color: #86c232!important;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 5px 30px;
+    height: auto!important;
+}
+.btn:hover{
+    background-color: #5d9b06!important;
+}
+.head{
+    color: #86c232!important;
+}
+h6{
+    color: white;
+}
+.input-field input[type=password],.input-field input[type=text]{
+    margin:25px 0px!important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus, .input-field input[type=password]:focus{
+    border-bottom: 1px solid #86c232!important;
+    box-shadow: 0 1px 0 0 #86c232!important;
+  }
+.card-image{
+    background-image: url('./images/honeycomb.jpg');
+    width:100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+}
+.home-card{
+    max-width: 40%;
+    height: max-content;
+    margin: 20px auto;
+}
+.input-field{
+    margin: 10px auto;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
