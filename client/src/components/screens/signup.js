@@ -28,9 +28,11 @@ function Signup(){
         M.toast({html: data.error,classes:"#c62828 red darken-3"});
       }
       else{
-        M.toast({html: data.message,classes:"#64dd17 light-green accent-4"});
+        M.toast({html: "Signup Successfully",classes:"#64dd17 light-green accent-4"});
         history.push('/login');
       }
+    }).catch(err=>{
+      console.log(err);
     })
   }
   return ( 
