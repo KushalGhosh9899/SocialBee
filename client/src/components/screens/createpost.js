@@ -1,53 +1,84 @@
-import React, { useState } from 'react';
-import M from "materialize-css";
-import {useHistory} from 'react-router-dom';
-
-const Createpost = () => {
-    const history = useHistory();
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
-    const [image, setImage] = useState("");
-    const [url, setUrl] = useState("");
-
-    const postDetails = () =>{
-        const data = new FormData();
-        data.append("file",image);
-        data.append("upload_preset","social-bee");
-        data.append("cloud_name","socialbee");
-        fetch("https://api.cloudinary.com/v1_1/socialbee/image/upload",{
-            method:"post",
-            body:data
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            setUrl(data.url);
-        })
-        .catch(err=>{
-            console.log(err);
-        })  
+import React,{useState,useEffect} from 'react'
+import M from 'materialize-css'
+import {useHistory} from 'react-router-dom'
+const Createpost = ()=>{
+    const history = useHistory()
+    const [title,setTitle] = useState("")
+    const [body,setBody] = useState("")
+    const [image,setImage] = useState("")
+    const [url,setUrl] = useState("")    
+    useEffect(()=>{
+       if(url){
         fetch("/createpost",{
             method:"post",
             headers:{
-              "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
             },
             body:JSON.stringify({
-              title,
-              body,
-              pic:url
+                title,
+                body,
+                pic:url
             })
-          }).then(res=>res.json())
-          .then(data=>{
+        }).then(res=>res.json())
+        .then(data=>{    
             if(data.error){
-              M.toast({html: data.error,classes:"#c62828 red darken-3"});
-            }
-            else{
-              M.toast({html: "Created Post Successfully",classes:"#64dd17 light-green accent-4"});
-              history.push('/');
-            }
-          }).catch(err=>{
-            console.log(err);
-          })      
-    }
+                M.toast({html: data.error,classes:"#c62828 red darken-3"});
+                return
+              }
+              else{
+                M.toast({html: "Created Post Successfully",classes:"#64dd17 light-green accent-4"});
+                history.push('/');
+           }
+        }).catch(err=>{
+            console.log(err)
+        })
+    } 
+    },[url])
+  //Checks for All the values of Input Boxes 
+   const postDetails = ()=>{
+    fetch("/createpost",{
+        method:"post",
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":"Bearer "+localStorage.getItem("jwt")
+        },
+        body:JSON.stringify({
+            title,
+            body,
+            pic:url
+        })
+    }).then(res=>res.json())
+    .then(data=>{    
+        if(data.error){
+            M.toast({html: data.error,classes:"#c62828 red darken-3"});
+            return
+            //if all fields are not present then it will exit
+          }   
+          
+        }).catch(err=>{
+        console.log(err)
+    }) 
+    //Checking of Input Boxes finished
+    
+    
+    const data = new FormData()
+    data.append("file",image)
+    data.append("upload_preset","social-bee");
+    data.append("cloud_name","socialbee");
+    fetch("https://api.cloudinary.com/v1_1/socialbee/image/upload",{
+        method:"post",
+        body:data
+    })
+    .then(res=>res.json())
+    .then(data=>{
+       setUrl(data.url)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+    
+   }
     return (
         <div className="card input-field">
             <input
