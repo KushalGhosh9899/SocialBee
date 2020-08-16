@@ -5,9 +5,10 @@ function Home(){
       <div className="home">
         <div className="card home-card">
           <h5>Kushal</h5>
-          <div className="card-image">          
+          <div className="card-image">
+            <img src="images/honeycomb.jpg"></img>
           </div>
-          <div className="card-content">
+          <div className="card-content" >
           <i className="material-icons" style={{color:"red"}}>favorite</i>
           <h5>title</h5>           
             <p>this is body</p>

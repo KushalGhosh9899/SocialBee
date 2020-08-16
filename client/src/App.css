@@ -50,7 +50,6 @@ h6{
     box-shadow: 0 1px 0 0 #86c232!important;
   }
 .card-image{
-    background-image: url('./images/honeycomb.jpg');
     width:100%;
     height: 50vh;
     background-size: cover;
